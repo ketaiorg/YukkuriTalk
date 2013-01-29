@@ -31,7 +31,7 @@ Ubuntu12.10へのインストールを例に説明します。
 `$ sudo apt-get install wine`
 
 - MeCab : 漢字からひらがなへの変換に使用します  
-`$ sudo apt-get install mecab libmecab-dev mecab-ipadic`
+`$ sudo apt-get install mecab libmecab-dev mecab-ipadic`  
 インストール後、以下のコマンドを実行し、辞書をUTF-8に変換してください  
 `$ sudo /usr/lib/mecab/mecab-dict-index -d /usr/share/mecab/dic/ipadic -o /var/lib/mecab/dic/ipadic -f euc-jp -t utf-8`  
 
