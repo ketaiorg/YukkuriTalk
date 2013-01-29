@@ -70,7 +70,7 @@ SampleTalk.cに発声プログラムを書き、AquesTalk.dll, AquesTalk.h, Aque
 
 `$ ./yukkuritalk "あいうえお"`  
 
-> [talked] (あいうえお)
+> [talked] （あいうえお）
 
 のように表示され発声されます。
 
