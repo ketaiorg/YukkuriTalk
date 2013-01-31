@@ -2,7 +2,7 @@
 <?php
 /**
  * YukkuriTalk
- * 引数で指定された文字を発声する
+ * 標準入力もしくは引数で指定された文字を発声する
  * 
  * @package		YukkuriTalk
  * @author		松井 健太郎 (Kentaro Matsui) <info@ke-tai.org>
@@ -16,11 +16,13 @@
 // 実行パス設定
 chdir(dirname(__FILE__));
 
-// 引数を取得
+// セリフを取得
 if (isset($argv[1])) {
+	// 引数がある場合はそちらを優先
 	$lines = $argv[1];
 } else {
-	$lines = '';
+	// 引数が無い場合は標準入力を利用
+	$lines = file_get_contents('php://stdin');
 }
 
 // 発声
@@ -102,6 +104,8 @@ class Yukkuri_Talk
 		// 半角スペースや一部マークが失われてしまうので変換
 		$tr_arr = array(
 			' ' => '　',
+			"\t" => '　',
+			"\n" => '　',
 			'?' => '{{{1}}}',
 			'？' => '{{{1}}}',
 			'\\' => '{{{2}}}',
