@@ -44,6 +44,8 @@ class Yukkuri_Talk
 	protected $mecab_cmd = "echo %MSG% | /usr/bin/mecab | awk '/[^EOS]$/ {print $1\"\t\"$2}'";		// かな変換のためのmecabコマンド
 	protected $exec_cmd = 'echo %MSG% | iconv -f %ENCODE% -t SJIS > %TMP_TXT% && wine AquesTalk.exe %TMP_TXT% %TMP_WAV% 80 && /usr/bin/play %TMP_WAV% >/dev/null 2>&1 && rm %TMP_TXT% %TMP_WAV%';		// 実行されるコマンド
 	protected $breath_len = 110;						// 一度に発声できる最大文字数
+	protected $max_len = 1200;							// 発声できる文章の最大文字数
+	protected $msg_max_len = ' (長すぎるため省略されました)';		// 最大文字数に達した場合のメッセージ
 
 	/**
 	 * コンストラクタ
@@ -65,6 +67,14 @@ class Yukkuri_Talk
 	public function talk($lines)
 	{
 		$lines = trim($lines);
+
+		// セリフの文字数チェック
+		$max_len = $this->max_len;
+		if ($max_len < mb_strlen($lines)) {
+			// 長すぎる場合は省略する
+			$lines = mb_substr($lines, 0, $max_len - mb_strlen($this->msg_max_len)) . $this->msg_max_len;
+		}
+
 		if ('' == $lines) {
 			// セリフ未指定
 			fputs(STDERR, "Usage: yukkuritalk [string...]\n");
