@@ -35,9 +35,6 @@ Ubuntu12.10へのインストールを例に説明します。
 インストール後、以下のコマンドを実行し、辞書をUTF-8に変換してください  
 `$ sudo /usr/lib/mecab/mecab-dict-index -d /usr/share/mecab/dic/ipadic -o /var/lib/mecab/dic/ipadic -f euc-jp -t utf-8`  
 
-- sox : Wavファイルの再生に使用します  
-`$ sudo apt-get install sox`
-
 ----
 
 ### 発声用の実行ファイル「AquesTalk.exe」を作る

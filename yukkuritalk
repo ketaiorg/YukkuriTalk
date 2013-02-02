@@ -42,7 +42,7 @@ class Yukkuri_Talk
 	protected $tmp_dir = '/tmp/';						// テンポラリファイルの置き場所
 	protected $tmp_prefix = 'yukkuri_talk_';			// テンポラリファイルの接頭語
 	protected $mecab_cmd = "echo %MSG% | /usr/bin/mecab | awk '/[^EOS]$/ {print $1\"\t\"$2}'";		// かな変換のためのmecabコマンド
-	protected $exec_cmd = 'echo %MSG% | iconv -f %ENCODE% -t SJIS > %TMP_TXT% && wine AquesTalk.exe %TMP_TXT% %TMP_WAV% 80 && /usr/bin/play %TMP_WAV% >/dev/null 2>&1 && rm %TMP_TXT% %TMP_WAV%';		// 実行されるコマンド
+	protected $exec_cmd = 'echo %MSG% | iconv -f %ENCODE% -t SJIS > %TMP_TXT% && wine AquesTalk.exe %TMP_TXT% %TMP_WAV% 80 && aplay %TMP_WAV% >/dev/null 2>&1 && rm %TMP_TXT% %TMP_WAV%';		// 実行されるコマンド
 	protected $breath_len = 110;						// 一度に発声できる最大文字数
 	protected $max_len = 1200;							// 発声できる文章の最大文字数
 	protected $msg_max_len = ' (長すぎるため省略されました)';		// 最大文字数に達した場合のメッセージ
