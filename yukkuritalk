@@ -84,13 +84,13 @@ class Yukkuri_Talk
 
 		// テンポラリファイル名とコマンドの決定
 		$uniq = microtime(true);
-		$tmp_txt = escapeshellarg($this->tmp_dir . $this->tmp_prefix . $uniq . '.txt');
-		$tmp_wav = escapeshellarg($this->tmp_dir . $this->tmp_prefix . $uniq . '.wav');
+		$tmp_txt = $this->tmp_dir . $this->tmp_prefix . $uniq . '.txt';
+		$tmp_wav = $this->tmp_dir . $this->tmp_prefix . $uniq . '.wav';
 		$tr_arr = array(
 			'%MSG%' => escapeshellarg($lines_kana),
 			'%ENCODE%' => escapeshellarg($this->encoding),
-			'%TMP_WAV%' => escapeshellarg($this->tmp_dir . $this->tmp_prefix . $uniq . '.wav'),
-			'%TMP_TXT%' => escapeshellarg($this->tmp_dir . $this->tmp_prefix . $uniq . '.txt'),
+			'%TMP_TXT%' => escapeshellarg($tmp_txt),
+			'%TMP_WAV%' => escapeshellarg($tmp_wav),
 		);
 		$cmd = strtr($this->exec_cmd, $tr_arr);		// 実行されるコマンド
 
