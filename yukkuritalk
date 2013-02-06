@@ -36,7 +36,7 @@ $yt->talk($lines);
  */
 class Yukkuri_Talk
 {
-	protected $msg_ok = '[talked]'				;		// 実行成功時のメッセージ
+	protected $msg_ok = '[talked]';						// 実行成功時のメッセージ
 	protected $msg_ng = '[error]';						// エラーの場合のメッセージ
 	protected $encoding = 'UTF-8';						// 内部で使用されるエンコーディング
 	protected $tmp_dir = '/tmp/';						// テンポラリファイルの置き場所
