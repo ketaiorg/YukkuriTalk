@@ -63,7 +63,7 @@ SampleTalk.cに発声プログラムを書き、AquesTalk.dll, AquesTalk.h, Aque
 
 ### Wineを使った実行
 
-実行プログラム本体の「yukkuritalk」と同じディレクトリに前項で作成した「AquesTalk.exe」とダウンロードした「AquesTalk.exe」を置き、次のように実行します。
+実行プログラム本体の「yukkuritalk」と同じディレクトリに前項で作成した「AquesTalk.exe」とダウンロードした「AquesTalk.dll」を置き、次のように実行します。
 
 `$ ./yukkuritalk "あいうえお"`  
 
