@@ -40,18 +40,17 @@ Ubuntu12.10へのインストールを例に説明します。
 ### 発声用の実行ファイル「AquesTalk.exe」を作る
 
 テキストを受け取りWavファイルを出力するようなexeを作成します。  
-バイナリの配布には頒布ライセンスが必要なようなので添付しておりません。自身で作成してください。  
+バイナリの配布には頒布ライセンスが必要なようなので添付しておりません。自身でコンパイルし作成してください。  
 
-こちらのブログが参考になります。  
-http://d.hatena.ne.jp/xanxys/20100116/1263608651  
-必要なライブラリやドキュメントはAquesTalkのページからダウンロードできます。  
+srcディレクトリにサンプルソースコードを入れておきました。  
+必要なライブラリやドキュメントは[AquesTalkのページ](http://www.a-quest.com/products/aquestalk.html)からダウンロードできます。  
 試用版には一部発音の制限がありますが、とりあえず動作させるには支障ありません。  
 ライセンスを購入することで正式版のdllが入手可能です。  
 
 コンパイルの実行例  
-SampleTalk.cに発声プログラムを書き、AquesTalk.dll, AquesTalk.h, AquesTalk.libを同じディレクトリに置いた状態で、  
+サンプルのAquesTalk.cと、AquesTalk.dll, AquesTalk.h, AquesTalk.libを同じディレクトリに置いた状態で、  
 
-`$ i586-mingw32msvc-gcc SampleTalk.c AquesTalk.lib -o AquesTalk.exe`
+`$ i586-mingw32msvc-gcc AquesTalk.c AquesTalk.lib -o AquesTalk.exe`
 
 でコンパイルできます。
 
